@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import '../db/mysql-connection.js';
+import { db } from '../db/mysql-connection.js';
 
 
 export const verifyToken = async (res, req, next) =>{

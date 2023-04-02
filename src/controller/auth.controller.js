@@ -1,5 +1,6 @@
 import '../db/mysql-connection.js';
 import jwt from 'jsonwebtoken';
+import { db } from '../db/mysql-connection.js';
 
 export const logIn = async (req, res)=>{
     res.header("Access-Control-Allow-Origin", "*");
