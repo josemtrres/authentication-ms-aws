@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import mysql from 'mysql';
+import mysql from 'mysql2';
 
 export const db = {
   sql : mysql.createConnection({
