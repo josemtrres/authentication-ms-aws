@@ -2,19 +2,28 @@ import bcrypt from 'bcryptjs';
 import mysql from 'mysql2';
 
 export const db = {
-  sql : mysql.createConnection({
-    host: '34.230.74.225',
-    user: 'konan',
-    password: '$%cstx7c6dvfghjFTFnh1?',
-    database: 'RegistrobaseDatos2'
+  //sql : mysql.createConnection({
+  //  host: '34.230.74.225',
+  //  user: 'konan',
+  //  password: '$%cstx7c6dvfghjFTFnh1?',
+  //  database: 'RegistrobaseDatos2'
+  //}),
+  
+  sql: mysql.createConnection({
+      host:'localhost',
+      user:'testuser',
+      password:'passwordtest',
+      database:'database_test'
   }),
 
   findUser : function(username, password, callback){
     let value =  false;
-
-    this.sql.query('SELECT * FROM user WHERE username = ?', [username], (err, row, fields)=>{
-      if(bcrypt.compareSync(password, String(row[0].password))){
-        value = true;
+    
+    this.sql.query('SELECT * FROM User WHERE username = ?', [username], (err, row, fields)=>{
+      if(row[0] != undefined){
+        if(bcrypt.compareSync(password, String(row[0].password))){
+          value = true;
+        }
       }
       callback(value)
     });

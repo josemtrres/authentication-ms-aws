@@ -1,7 +1,10 @@
 import { Router } from "express";
-import * as authCntl from '../controller/auth.controller.js';
+import VerifyInput from "../middleware/validate.input.js";
+import * as authCtrl from '../controller/auth.controller.js';
+import path from "path";
 
 const router = Router();
-router.post('/login', authCntl.logIn);
+
+router.post('/login', VerifyInput, authCtrl.logIn);
  
 export default router;
