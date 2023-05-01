@@ -1,0 +1,1 @@
+  Este es un proyecto realizado con JavaScript usando Express, en donde se realiza un microserivicio de autenticación para servir en una aplicación, con el fin de poder realizar una programación segura y evitar ataques futuros.
